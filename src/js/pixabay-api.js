@@ -41,8 +41,8 @@ export async function searchImages(query, page = 1) {
 
         if (response.data.hits.length === 0) {
             iziToast.error({
-                title: "Ошибка",
-                message: "По вашему запросу ничего не найдено.",
+                title: "err",
+                message: "not found",
                 position: "topRight",
             });
             return;
@@ -54,11 +54,11 @@ export async function searchImages(query, page = 1) {
     } catch (error) {
         loader.style.display = "none";
         iziToast.error({
-            title: "Ошибка",
-            message: "Не удалось загрузить изображения. Попробуйте позже.",
+            title: "err",
+            message: "err",
             position: "topRight",
         });
-        console.error("Ошибка запроса:", error);
+        console.error("failed", error);
     }
 }
 
@@ -67,12 +67,5 @@ export function loadMoreImages() {
     searchImages(currentQuery, currentPage);
 }
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const query = event.target.elements.searchQuery.value.trim();
-    if (query) {
-        searchImages(query);
-    }
-});
 
 loadMoreBtn.addEventListener("click", loadMoreImages);

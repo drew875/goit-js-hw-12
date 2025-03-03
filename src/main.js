@@ -2,12 +2,17 @@ import { searchImages } from './js/pixabay-api.js';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-const searchButton = document.querySelector(".searchBtn");
-const form = document.querySelector("form");
 
-form.style.margin = "0 auto";
-form.style.display = "block";
+const form = document.querySelector("form");
+const gallery = document.querySelector(".gallery");
 form.style.width = "300px";
+form.style.margin = "0 auto";
+gallery.style.display = "flex";
+gallery.style.flexWrap = "wrap";
+gallery.style.margin = "0 auto";
+gallery.style.justifyContent = "center";
+
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();

@@ -17,6 +17,7 @@ loadMoreBtn.style.display = "none";
 
 export async function searchImages(query, page = 1) {
     if (query !== currentQuery) {
+
         currentPage = 1;
         currentQuery = query;
         document.querySelector(".gallery").innerHTML = "";
@@ -34,6 +35,7 @@ export async function searchImages(query, page = 1) {
                 safesearch: true,
                 per_page: 40,
                 page: page,
+                total: 100,
             }
         });
 
